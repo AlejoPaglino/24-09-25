@@ -4,10 +4,10 @@ let animales = document.querySelector(`#animales`)
 let dia = document.querySelector(`#dia`)
 let listaDeAnimales = document.querySelector(`#listaDeAnimales`)
 console.log('hola')
-fetch('https://extinct-api.herokuapp.com/api/v1/animal/1')
+fetch('https://extinct-api.herokuapp.com/api/v1/animal/')
   .then(res => res.json(''))
   .then(datos => {
-    fotos.src = datos[0].url
+    fotos.src = datos[0]
     titulo.textContent = datos[0].title
     Partidos.textContent = datos[0].date
     dia.textContent = datos[0].date
@@ -16,5 +16,18 @@ fetch('https://extinct-api.herokuapp.com/api/v1/animal/1')
   })
 
 
+  fetch("https://cheba-apis.vercel.app/extinct")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log("Respuesta de la API:", data);
+  })
+  .catch(error => {
+    console.error("Error al hacer la petición:", error);
+  });
 
  
