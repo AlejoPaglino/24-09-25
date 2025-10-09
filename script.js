@@ -7,7 +7,7 @@ console.log('hola')
 fetch('https://extinct-api.herokuapp.com/api/v1/animal/')
   .then(res => res.json(''))
   .then(datos => {
-    fotos.src = datos[0]
+    fotos.src = datos[0].url
     titulo.textContent = datos[0].title
     Partidos.textContent = datos[0].date
     dia.textContent = datos[0].date
